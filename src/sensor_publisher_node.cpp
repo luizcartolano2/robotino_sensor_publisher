@@ -13,7 +13,8 @@ int main(int argc, char **argv)
     e publicar a distancia lida pelos sensores ignorando o sensor de numero 1 (sensor frontal)
   */
   SensorPublisher distance_sensors;
-  distance_sensors.spin();
+  ros::spin();
 
   return 0;
 }
+

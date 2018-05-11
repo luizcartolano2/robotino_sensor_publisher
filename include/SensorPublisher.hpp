@@ -5,6 +5,7 @@
 #define SENSORPUBLISHER_HPP
 
 // including paths that will be necessary
+#include <iostream>
 #include <ros/ros.h>
 #include "sensor_msgs/PointCloud.h"
 #include <sensor_msgs/PointCloud2.h>
@@ -12,10 +13,7 @@
 class SensorPublisher {
 public:
   SensorPublisher();
-  ~SensorPublisher();
-
-  void spin();
-  void setTimeStamp(ros::Time stamp);
+  void IRCallback(const sensor_msgs::PointCloud::ConstPtr& msg);
 
 private:
   // ROS Handles, Publishers, Subscriber and Messages
@@ -27,12 +25,8 @@ private:
 
   sensor_msgs::PointCloud distances_msg_;
 
-  ros::Time stamp_;
 
-  std::vector<std::array<float, 3> > dist_vect_ {0};
-  void IRCallback(const sensor_msgs::PointCloud::ConstPtr& msg);
-
-
-}
+};
 
 #endif //DISTANCESENSORS_HPP
+
